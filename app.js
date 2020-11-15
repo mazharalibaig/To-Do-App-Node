@@ -11,7 +11,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 //firing controllers
-
 todoControllers(app);
 
 //listen to port    

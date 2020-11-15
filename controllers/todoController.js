@@ -2,7 +2,7 @@ module.exports = function(app){
 
 app.get('/todo', (req,res) => {
     
-    res.end('It Works!!');
+    res.render('todo');
 
 });
 
