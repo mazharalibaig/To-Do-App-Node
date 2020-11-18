@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var URL = require('../MONGODB_KEYS');
+// var URL = require('../MONGODB_KEYS');
 // var data = [{item: 'Task no.1'},{item: 'Task no.2'},{item: 'Task no.3'}];
 
-mongoose.connect(URL,{useNewUrlParser: true});
+mongoose.connect('mongodb+srv://mazhar_ali_baig:Maryam09@cluster0.zvl25.mongodb.net/todo-database?retryWrites=true&w=majority',{useNewUrlParser: true});
 
 // Constructing Schema
 const todoSchema = new mongoose.Schema({
