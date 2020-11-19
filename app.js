@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var todoControllers = require('./controllers/todoController');
+var portNumber = process.env.PORT || 3000;
 
 var app = express();
 
@@ -14,6 +15,6 @@ app.use(express.static('./public'));
 todoControllers(app);
 
 //listen to port    
-app.listen(3000, () => {
+app.listen(portNumber, () => {
     console.log('You are listening to port 3000');
 });
