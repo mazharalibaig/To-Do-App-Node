@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-// var URL = require('../MONGODB_KEYS');
+require('dotenv').config();
 // var data = [{item: 'Task no.1'},{item: 'Task no.2'},{item: 'Task no.3'}];
 
-mongoose.connect('mongodb+srv://mazhar_ali_baig:Maryam09@cluster0.zvl25.mongodb.net/todo-database?retryWrites=true&w=majority',{useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true});
 
 // Constructing Schema
 const todoSchema = new mongoose.Schema({
@@ -68,7 +68,11 @@ app.post('/todo',urlencodedParser,(req,res) => {
 
 app.delete('/todo/:item',(req,res) => {
 
+    console.log('request received\n');
+
     Todo.find({item: req.params.item.trim().replace( /\-/g," ")}).remove((err,data) => {
+
+        console.log('item removed\n');
 
         if(err)
             throw err;
